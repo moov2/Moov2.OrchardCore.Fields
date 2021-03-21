@@ -16,11 +16,8 @@ namespace Etch.OrchardCore.Fields.RenderAlias.Drivers
 
         public override IDisplayResult Display(RenderAliasField field, BuildFieldDisplayContext fieldDisplayContext)
         {
-            return Initialize<DisplayRenderAliasFieldViewModel>(GetDisplayShapeType(fieldDisplayContext), model =>
+            return Initialize<RenderAliasFieldViewModel>(GetDisplayShapeType(fieldDisplayContext), model =>
             {
-                model.Field = field;
-                model.Part = fieldDisplayContext.ContentPart;
-                model.PartFieldDefinition = fieldDisplayContext.PartFieldDefinition;
                 model.Alias = field.Alias;
                 model.DisplayType = field.DisplayType;
             })

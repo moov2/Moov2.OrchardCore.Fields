@@ -14,11 +14,6 @@ namespace Etch.OrchardCore.Fields.Values
     [Feature("Etch.OrchardCore.Fields.Values")]
     public class Startup : StartupBase
     {
-        public Startup()
-        {
-            TemplateContext.GlobalMemberAccessStrategy.Register<ValuesField>();
-        }
-
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IDataMigration, Migrations>();
@@ -27,6 +22,11 @@ namespace Etch.OrchardCore.Fields.Values
                 .UseDisplayDriver<ValuesFieldDisplayDriver>();
 
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ValuesFieldSettingsDriver>();
+
+            services.Configure<TemplateOptions>(o =>
+            {
+                o.MemberAccessStrategy.Register<ValuesField>();
+            });
         }
     }
 }

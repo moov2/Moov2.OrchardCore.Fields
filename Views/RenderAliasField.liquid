@@ -1,2 +1,3 @@
-﻿{% assign render_item = Content["alias:" + Model.Alias] %}
-{{ render_item | shape_build_display: Model.DisplayType | shape_render }}
+﻿{% assign contentItem = Content.Alias[Model.Alias] %}
+
+{{ contentItem | shape_build_display: Model.DisplayType | shape_render }}

@@ -15,12 +15,6 @@ namespace Etch.OrchardCore.Fields.Dictionary
     [Feature("Etch.OrchardCore.Fields.Dictionary")]
     public class Startup : StartupBase
     {
-        public Startup()
-        {
-            TemplateContext.GlobalMemberAccessStrategy.Register<DictionaryField>();
-            TemplateContext.GlobalMemberAccessStrategy.Register<DictionaryItem>();
-        }
-
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IDataMigration, Migrations>();
@@ -29,6 +23,12 @@ namespace Etch.OrchardCore.Fields.Dictionary
                 .UseDisplayDriver<DictionaryFieldDisplayDriver>();
 
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, DictionaryFieldSettingsDriver>();
+
+            services.Configure<TemplateOptions>(o =>
+            {
+                o.MemberAccessStrategy.Register<DictionaryField>();
+                o.MemberAccessStrategy.Register<DictionaryItem>();
+            });
         }
     }
 }

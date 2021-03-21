@@ -16,11 +16,6 @@ namespace Etch.OrchardCore.Fields.Colour
     [Feature("Etch.OrchardCore.Fields.Colour")]
     public class Startup : StartupBase
     {
-        public Startup()
-        {
-            TemplateContext.GlobalMemberAccessStrategy.Register<ColourField>();
-        }
-
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddContentField<ColourField>()
@@ -30,6 +25,11 @@ namespace Etch.OrchardCore.Fields.Colour
 
             services.AddScoped<INavigationProvider, AdminMenu>();
             services.AddScoped<IDisplayDriver<ISite>, ColourSettingsDisplayDriver>();
+
+            services.Configure<TemplateOptions>(o =>
+            {
+                o.MemberAccessStrategy.Register<ColourField>();
+            });
         }
     }
 }

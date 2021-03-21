@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Version>0.11.4-rc2</Version>
     <PackageId>Etch.OrchardCore.Fields</PackageId>
@@ -20,17 +20,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.0" />
-    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Liquid.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Media" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Queries.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Taxonomies" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.Liquid.Abstractions" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.Media" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.Queries.Abstractions" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-16368" />
+    <PackageReference Include="OrchardCore.Taxonomies" Version="1.0.0-rc2-16368" />
   </ItemGroup>
 
   <ItemGroup>

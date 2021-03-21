@@ -16,13 +16,6 @@ namespace Etch.OrchardCore.Fields.ResponsiveMedia
     [Feature("Etch.OrchardCore.Fields.ResponsiveMedia")]
     public class Startup : StartupBase
     {
-        static Startup()
-        {
-            TemplateContext.GlobalMemberAccessStrategy.Register<DisplayResponsiveMediaFieldViewModel>();
-            TemplateContext.GlobalMemberAccessStrategy.Register<ResponsiveMediaItem>();
-            TemplateContext.GlobalMemberAccessStrategy.Register<ResponsiveMediaSource>();
-        }
-
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IDataMigration, Migrations>();
@@ -31,6 +24,13 @@ namespace Etch.OrchardCore.Fields.ResponsiveMedia
                 .UseDisplayDriver<ResponsiveMediaFieldDisplayDriver>();
 
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ResponsiveMediaFieldSettingsDriver>();
+
+            services.Configure<TemplateOptions>(o =>
+            {
+                o.MemberAccessStrategy.Register<DisplayResponsiveMediaFieldViewModel>();
+                o.MemberAccessStrategy.Register<ResponsiveMediaItem>();
+                o.MemberAccessStrategy.Register<ResponsiveMediaSource>();
+            });
         }
     }
 }

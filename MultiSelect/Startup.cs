@@ -15,12 +15,6 @@ namespace Etch.OrchardCore.Fields.MultiSelect
     [Feature("Etch.OrchardCore.Fields.MultiSelect")]
     public class Startup : StartupBase
     {
-        public Startup()
-        {
-            TemplateContext.GlobalMemberAccessStrategy.Register<MultiSelectField>();
-            TemplateContext.GlobalMemberAccessStrategy.Register<DisplayMultiSelectFieldViewModel>();
-        }
-
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IDataMigration, Migrations>();
@@ -29,6 +23,12 @@ namespace Etch.OrchardCore.Fields.MultiSelect
                 .UseDisplayDriver<MultiSelectFieldDisplayDriver>();
 
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, MultiSelectFieldSettingsDriver>();
+
+            services.Configure<TemplateOptions>(o =>
+            {
+                o.MemberAccessStrategy.Register<MultiSelectField>();
+                o.MemberAccessStrategy.Register<DisplayMultiSelectFieldViewModel>();
+            });
         }
     }
 }

@@ -14,18 +14,18 @@ namespace Etch.OrchardCore.Fields.Code
     [Feature("Etch.OrchardCore.Fields.Code")]
     public class Startup : StartupBase
     {
-        public Startup()
-        {
-            TemplateContext.GlobalMemberAccessStrategy.Register<CodeField>();
-            TemplateContext.GlobalMemberAccessStrategy.Register<DisplayCodeFieldViewModel>();
-        }
-
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddContentField<CodeField>()
                 .UseDisplayDriver<CodeFieldDisplayDriver>();
 
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, CodeFieldSettingsDriver>();
+
+            services.Configure<TemplateOptions>(o =>
+            {
+                o.MemberAccessStrategy.Register<CodeField>();
+                o.MemberAccessStrategy.Register<DisplayCodeFieldViewModel>();
+            });
         }
     }
 }
